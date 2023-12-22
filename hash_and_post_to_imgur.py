@@ -17,8 +17,6 @@ from PIL import Image
 from imagehash import phash
 import requests
 
-imgur_credentials.json
-
 with open('/secrets/imgur_credentials.json', 'r') as file:
     credentials = json.load(file)
 
