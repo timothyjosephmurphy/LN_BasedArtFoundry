@@ -1,4 +1,4 @@
 # .gitignore for BasedArtFoundry
 
 # Ignore the secrets folder
-secrets/
+secrets/a

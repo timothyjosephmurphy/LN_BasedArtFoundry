@@ -32,13 +32,13 @@ def mint_assets_from_file(dir_path):
             url = row['URL']
             group_key = row['group_key']
             asset_id = mint_asset(title, sha256, phash, url, group_key)
-        # THIS BLOCK SPENDS REAL MONEY:      # Commenting for testing purposes:
-        # command2 = 'tapcli -n mainnet a m f'
-        # result2 = subprocess.check_output(command2, shell=True, text=True)
-        # # for testing purposes: substitute the following line for the previous line:
-        with open('/Users/tj/Documents/Paintings Nov 18 2023/corrected/tapcli_output.txt', 'r') as file:
-            result2 = file.read()        
-        output_file.write(result2)
+        # THIS BLOCK SPENDS REAL MONEY:      
+        command2 = 'tapcli -n mainnet a m f'
+        result2 = subprocess.check_output(command2, shell=True, text=True)
+        # #  for testing purposes: substitute the following line for the previous line:
+        # with open('/Users/tj/Documents/Paintings Nov 18 2023/corrected/tapcli_output.txt', 'r') as file:
+        #     result2 = file.read()        
+        # output_file.write(result2)
 
 if len(sys.argv) > 1:
     mint_assets_from_file(sys.argv[1])
