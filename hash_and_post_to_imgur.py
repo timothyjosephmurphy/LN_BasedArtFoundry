@@ -17,7 +17,7 @@ from PIL import Image
 from imagehash import phash
 import requests
 
-with open('/secrets/imgur_credentials.json', 'r') as file:
+with open('./secrets/imgur_credentials.json', 'r') as file:
     credentials = json.load(file)
 
 client_id = credentials['client_id']
@@ -44,6 +44,7 @@ def upload_images(dir_path):
                 phash_hash = get_phash(image_path)
                 response = client.upload_from_path(image_path, config={'title': file_name}, anon=True)
                 sha256_hash = get_sha256(response["link"])
+                print(response["link"])
                 f.write(f'{file_name}\t{sha256_hash}\t{phash_hash}\t{response["link"]}\t{group_key}\n')
 
 if len(sys.argv) > 1:
