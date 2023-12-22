@@ -17,8 +17,13 @@ from PIL import Image
 from imagehash import phash
 import requests
 
-client_id='777656888384970'
-client_secret='27689d9a4fcd39cc16306cfaf91f03a910813b13'
+imgur_credentials.json
+
+with open('/secrets/imgur_credentials.json', 'r') as file:
+    credentials = json.load(file)
+
+client_id = credentials['client_id']
+client_secret = credentials['client_secret']
 
 def get_sha256(image_url):
     response = requests.get(image_url)
@@ -29,7 +34,6 @@ def get_phash(image_path):
     image = Image.open(image_path)
     return str(phash(image))
 
-# 11/18/2023 reordered this fucntion to find the sha256 hash of the image after uploading it to imgur
 def upload_images(dir_path):
     client = ImgurClient(client_id, client_secret)
     with open(os.path.join(dir_path, 'Hashes_and_urls.txt'), 'w') as f:

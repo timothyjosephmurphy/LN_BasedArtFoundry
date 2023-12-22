@@ -43,8 +43,8 @@ def chain_scripts(input_dir):
     # get the starting balance of the local LN wallet and calculate the dollar value of the starting balance
     price = get_bitcoin_price()
     starting_balance = get_balance()
-    dollar_value_of_starting_balance = starting_balance * price
-    print("starting balance: ", starting_balance, "sats, $", dollar_value_of_starting_balance)
+    dollar_value_of_starting_balance = round((starting_balance * price)/100000000,2)
+    print("Starting balance: ", starting_balance, "sats, $", dollar_value_of_starting_balance)
 
     scripts = [
         ('convert_heic_dir.py', [input_dir]),
@@ -67,9 +67,9 @@ def chain_scripts(input_dir):
     # get the ending balance of the local LN wallet and calculate the amount spent
     ending_balance = get_balance()
     amount_spent = starting_balance - ending_balance
-    dollar_value_of_ending_balance = ending_balance * price
-    dollar_value_of_amount_spent = amount_spent * price
-    print("ending balance:", ending_balance, "sats, $", dollar_value_of_ending_balance)
+    dollar_value_of_ending_balance = round((ending_balance * price)/100000000,2)
+    dollar_value_of_amount_spent = round((amount_spent * price)/100000000,2)
+    print("Ending balance:", ending_balance, "sats, $", dollar_value_of_ending_balance)
     print("Amount spent:", amount_spent, "sats, $", dollar_value_of_amount_spent)
 
 def main():
