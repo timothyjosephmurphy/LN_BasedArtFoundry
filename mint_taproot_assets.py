@@ -38,7 +38,7 @@ def mint_assets_from_file(dir_path):
         # #  for testing purposes: substitute the following line for the previous line:
         # with open('/Users/tj/Documents/Paintings Nov 18 2023/corrected/tapcli_output.txt', 'r') as file:
         #     result2 = file.read()        
-        # output_file.write(result2)
+        output_file.write(result2)
 
 if len(sys.argv) > 1:
     mint_assets_from_file(sys.argv[1])
